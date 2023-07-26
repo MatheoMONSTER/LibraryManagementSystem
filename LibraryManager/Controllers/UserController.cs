@@ -85,13 +85,34 @@ namespace LibraryManager.Controllers
                 _dbContext.Users.Remove(user);
                 await _dbContext.SaveChangesAsync();
 
-                //return NoContent();
                 return Content("User deleted successfully!");
             }
 
             catch (Exception ex)
             {
                 return BadRequest(ex.Message);  
+            }
+        }
+
+        [HttpPut("{id}")] 
+        public async Task<IActionResult> UpdateUser(int id, [FromBody] User user)
+        {
+            try
+            {
+                var existingUser = await _dbContext.Users.FindAsync(id); 
+                if(existingUser == null)
+                {
+                    return NotFound(); 
+                }
+                existingUser.Username = user.Username;
+                existingUser.Email = user.Email;
+
+                await _dbContext.SaveChangesAsync();
+                return Content("User updated successfully");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
             }
         }
     }
