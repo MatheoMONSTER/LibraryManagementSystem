@@ -1,4 +1,5 @@
-﻿using LibraryManager.Models;
+﻿using LibraryManager.BusinessLogic;
+using LibraryManager.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -9,10 +10,12 @@ namespace LibraryManager.Controllers
     public class UserController : ControllerBase
     {
         private readonly LibraryDbContext _dbContext;
+        private readonly RegisterUserLogic _registerLogic;
 
         public UserController(LibraryDbContext dbContext)
         {
             _dbContext = dbContext;
+            _registerLogic = new RegisterUserLogic(_dbContext);
         }
 
         [HttpPost]
@@ -113,6 +116,27 @@ namespace LibraryManager.Controllers
             catch (Exception ex)
             {
                 return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpPost("register")]
+        public ActionResult Register(User user)
+        {
+            if (ModelState.IsValid)
+            {
+                if (_registerLogic.RegisterUser(user.Username, user.FirstName, user.LastName, user.Email, user.Password))
+                {
+                    return CreatedAtAction(nameof(GetById), new { id = user.Id }, user);
+                }
+                else
+                {
+                    ModelState.AddModelError("Email", "This email is already taken");
+                    return BadRequest(ModelState);
+                }
+            }
+            else
+            {
+                return BadRequest(ModelState);
             }
         }
     }
