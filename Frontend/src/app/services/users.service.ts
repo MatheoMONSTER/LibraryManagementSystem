@@ -17,4 +17,8 @@ export class UsersService {
 
     return this.http.get<User[]>(this.baseApiUrl + '/api/User');
   }
+
+  registerNewUser(user: User): Observable<User> {
+    return this.http.post<User>(this.baseApiUrl + '/api/User/register', user);
+  }
 }

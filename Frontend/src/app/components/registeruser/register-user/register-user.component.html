@@ -1,0 +1,28 @@
+  
+<div class="container my-5">
+    <h1 class="mb-3">Register</h1>
+        <form (ngSubmit)="onRegister()">
+      <div>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" [(ngModel)]="newUser.username" required>
+      </div>
+      <div>
+        <label for="firstname">First Name:</label>
+        <input type="text" id="firstname" name="firstname" [(ngModel)]="newUser.firstname" required>
+      </div>
+      <div>
+        <label for="lastname">Last Name:</label>
+        <input type="text" id="lastname" name="lastname" [(ngModel)]="newUser.lastname" required>
+      </div>
+      <div>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" [(ngModel)]="newUser.email" required>
+      </div>
+      <div>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" [(ngModel)]="newUser.password" required>
+      </div>
+      <button type="submit">Register</button>
+    </form>
+  </div>
+  
