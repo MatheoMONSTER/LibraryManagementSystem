@@ -18,28 +18,28 @@ namespace LibraryManager.Controllers
             _registerLogic = new RegisterUserLogic(_dbContext);
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Create([FromBody] User user)
-        {
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _dbContext.Users.Add(user);
-                    await _dbContext.SaveChangesAsync();
-                    return CreatedAtAction(nameof(GetById), new { id = user.Id }, user);
-                }
-                catch (Exception ex)
-                {
-                    return BadRequest(ex.Message);
-                }
-            }
+        //[HttpPost]
+        //public async Task<IActionResult> Create([FromBody] User user)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        try
+        //        {
+        //            _dbContext.Users.Add(user);
+        //            await _dbContext.SaveChangesAsync();
+        //            return CreatedAtAction(nameof(GetById), new { id = user.Id }, user);
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            return BadRequest(ex.Message);
+        //        }
+        //    }
 
-            else
-            {
-                return BadRequest(ModelState);
-            }
-        }
+        //    else
+        //    {
+        //        return BadRequest(ModelState);
+        //    }
+        //}
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
@@ -119,7 +119,7 @@ namespace LibraryManager.Controllers
             }
         }
 
-        [HttpPost("register")]
+        [HttpPost]
         public ActionResult Register(User user)
         {
             if (ModelState.IsValid)
