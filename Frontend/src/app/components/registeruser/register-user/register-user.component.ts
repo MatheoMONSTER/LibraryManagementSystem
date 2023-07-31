@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/models/user.model';
 import { UsersService } from 'src/app/services/users.service';
 
@@ -7,30 +7,30 @@ import { UsersService } from 'src/app/services/users.service';
   templateUrl: './register-user.component.html',
   styleUrls: ['./register-user.component.css']
 })
-export class RegisterUserComponent {
+export class RegisterUserComponent implements OnInit{
 
-  newUser: User;
-  constructor(private newUserService: UsersService) {
-    this.newUser = {
-      id: 0,
-      username: '',
-      email: '',
-      firstname: '',
-      lastname: '',
-      password: '',
-    };
+  addUserRequest: User = {
+    id: 0, 
+    username: '',
+    email: '',
+    firstname: '',
+    lastname: '',
+    password: ''
+  };
+
+  constructor(private userService: UsersService) { }
+
+  ngOnInit(): void {
+      
   }
 
-  onRegister(): void {
-    this.newUserService.registerNewUser(this.newUser).subscribe(
-      (user) => {
-        // Obsługa sukcesu - np. wyświetlenie komunikatu o sukcesie rejestracji
-        console.log('User registered successfully:', user);
-      },
-      (error) => {
-        // Obsługa błędu - np. wyświetlenie komunikatu o błędzie rejestracji
-        console.error('Error during registration:', error);
+  addUser() {
+    this.userService.registerNewUser(this.addUserRequest)
+    .subscribe({
+      next: (user) => {
+        console.log(user);
       }
-    );
+    })
   }
+
 }
