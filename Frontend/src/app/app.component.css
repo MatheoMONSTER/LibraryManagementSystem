@@ -1,0 +1,43 @@
+.navbar {
+    background-color: #39CCCC; /* Change background color to a teal shade */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  .navbar-brand {
+    font-size: 24px;
+    color: #fff; /* White text color */
+    font-weight: bold;
+  }
+
+  .navbar-nav .nav-item {
+    margin-right: 10px;
+  }
+
+  .nav-link {
+    color: #fff; /* White text color */
+    font-weight: bold;
+  }
+
+  .nav-link:hover {
+    color: #01FF70; /* Change link color on hover to a green shade */
+  }
+
+  /* Add custom styles for the search form */
+  .form-control {
+    background-color: #fff; /* White background color */
+    color: #000; /* Black text color */
+    border-color: #01FF70; /* Change input border color to a green shade */
+    font-weight: bold;
+  }
+
+  .btn-outline-success {
+    color: #fff; /* White text color */
+    background-color: #01FF70; /* Change button background color to a green shade */
+    border-color: #01FF70; /* Change button border color to a green shade */
+    font-weight: bold;
+  }
+
+  .btn-outline-success:hover {
+    background-color: #00E64D; /* Change button background color on hover to a darker green shade */
+    border-color: #00E64D; /* Change button border color on hover to a darker green shade */
+  }

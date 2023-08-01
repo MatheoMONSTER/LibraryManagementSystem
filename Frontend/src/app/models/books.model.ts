@@ -2,6 +2,6 @@ export interface Books {
     id: number;
     title: string;
     author: string;
-    numberofpages: number; 
+    numberOfPages: number; 
     publisher: string;
 }

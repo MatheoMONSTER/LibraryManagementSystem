@@ -13,8 +13,8 @@ export class RegisterUserComponent implements OnInit {
     id: 0,
     username: '',
     email: '',
-    firstname: '',
-    lastname: '',
+    firstName: '',
+    lastName: '',
     password: ''
   };
 
@@ -35,12 +35,12 @@ export class RegisterUserComponent implements OnInit {
   }
 
   isFormValid(): boolean {
-    const {username, email, firstname, lastname, password} = this.addUserRequest;
+    const {username, email, firstName, lastName, password} = this.addUserRequest;
     return (
       username.trim().length > 0 &&
       email.trim().length > 0 &&
-      firstname.trim().length > 0 && 
-      lastname.trim().length > 0 && 
+      firstName.trim().length > 0 && 
+      lastName.trim().length > 0 && 
       password.trim().length > 0
     );
   }
