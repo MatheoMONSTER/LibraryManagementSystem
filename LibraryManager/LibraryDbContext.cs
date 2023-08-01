@@ -6,6 +6,7 @@ namespace LibraryManager
     public class LibraryDbContext : DbContext
     {
         public DbSet<User> Users { get; set; }
+        public DbSet<Books> Books { get; set; }
 
         public LibraryDbContext(DbContextOptions<LibraryDbContext> options) : base(options)
         {
