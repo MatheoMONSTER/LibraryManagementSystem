@@ -1,0 +1,31 @@
+/* Add custom styles for the table */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  /* Add custom styles for the table header */
+  .table th {
+    background-color: #f2f2f2;
+    padding: 12px;
+    font-weight: bold;
+    border: 1px solid #ccc;
+  }
+  
+  /* Add custom styles for the table rows */
+  .table td {
+    padding: 12px;
+    border: 1px solid #ccc;
+  }
+  
+  /* Add custom styles for alternating row background color */
+  .table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  /* Add custom styles for the "No books found" message */
+  p {
+    font-style: italic;
+    color: #777;
+  }
+  
