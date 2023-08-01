@@ -7,12 +7,14 @@ import { AppComponent } from './app.component';
 import { UsersListComponent } from './components/users/users-list/users-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RegisterUserComponent } from './components/registeruser/register-user/register-user.component';
+import { BooksListComponent } from './components/books/books-list/books-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UsersListComponent,
-    RegisterUserComponent
+    RegisterUserComponent,
+    BooksListComponent
   ],
   imports: [
     BrowserModule,
