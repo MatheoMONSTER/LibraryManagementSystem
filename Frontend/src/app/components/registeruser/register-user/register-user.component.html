@@ -1,9 +1,9 @@
 <div class="container my-5">
     <h1 class="mb-3">Register</h1>
-        <form #form="ngForm" (ngSubmit)="addUser()">
+        <form #form="ngForm" (ngSubmit)="addUser()" class="register-form">
       <div>
         <label for="username">Username:</label>
-        <input type="text" id="username" name="username" [(ngModel)]="addUserRequest.username" required>
+        <input type="text" id="username" name="username"  [(ngModel)]="addUserRequest.username" required>
       </div>
       <div>
         <label for="firstname">First Name:</label>

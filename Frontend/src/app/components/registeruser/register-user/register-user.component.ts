@@ -7,10 +7,10 @@ import { UsersService } from 'src/app/services/users.service';
   templateUrl: './register-user.component.html',
   styleUrls: ['./register-user.component.css']
 })
-export class RegisterUserComponent implements OnInit{
+export class RegisterUserComponent implements OnInit {
 
   addUserRequest: User = {
-    id: 0, 
+    id: 0,
     username: '',
     email: '',
     firstname: '',
@@ -20,17 +20,28 @@ export class RegisterUserComponent implements OnInit{
 
   constructor(private userService: UsersService) { }
 
-  ngOnInit(): void {
-      
-  }
+  ngOnInit(): void { }
 
   addUser() {
-    this.userService.registerNewUser(this.addUserRequest)
-    .subscribe({
-      next: (user) => {
-        console.log(user);
-      }
-    })
+    if (this.isFormValid()) {
+      this.userService.registerNewUser(this.addUserRequest).subscribe({
+        next: (user) => {
+          console.log(user);
+        }
+      });
+    } else {
+      alert('Proszę wypełnić wszystkie wymagane pola.');
+    }
   }
 
+  isFormValid(): boolean {
+    const {username, email, firstname, lastname, password} = this.addUserRequest;
+    return (
+      username.trim().length > 0 &&
+      email.trim().length > 0 &&
+      firstname.trim().length > 0 && 
+      lastname.trim().length > 0 && 
+      password.trim().length > 0
+    );
+  }
 }
