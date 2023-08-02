@@ -18,6 +18,9 @@ export class RegisterUserComponent implements OnInit {
     password: ''
   };
 
+  // Add a property to track which fields are empty
+  emptyFields: boolean[] = [false, false, false, false, false];
+
   constructor(private userService: UsersService) { }
 
   ngOnInit(): void { }
@@ -35,13 +38,17 @@ export class RegisterUserComponent implements OnInit {
   }
 
   isFormValid(): boolean {
-    const {username, email, firstName, lastName, password} = this.addUserRequest;
-    return (
-      username.trim().length > 0 &&
-      email.trim().length > 0 &&
-      firstName.trim().length > 0 && 
-      lastName.trim().length > 0 && 
-      password.trim().length > 0
-    );
+    const { username, email, firstName, lastName, password } = this.addUserRequest;
+
+    // Update the emptyFields array based on form validity
+    this.emptyFields = [
+      username.trim().length === 0,
+      email.trim().length === 0,
+      firstName.trim().length === 0,
+      lastName.trim().length === 0,
+      password.trim().length === 0
+    ];
+
+    return !this.emptyFields.some(fieldEmpty => fieldEmpty);
   }
 }
