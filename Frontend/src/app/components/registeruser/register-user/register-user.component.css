@@ -59,4 +59,12 @@ body, h1, h2, form {
   button:hover {
     background-color: #45a049;
   }
-  
+
+.register-form .has-error input { 
+  border: 1px solid #ff0000; /* Red border for fields with errors */
+  background-color: #ffe0e0; /* Light red background for fields with errors */
+  border-radius: 4px;
+  padding: 4px;
+  box-shadow: 0 0 4px #ff9999;
+
+}

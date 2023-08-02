@@ -1,28 +1,26 @@
 <div class="container my-5">
-    <h1 class="mb-3">Register</h1>
-        <form #form="ngForm" (ngSubmit)="addUser()" class="register-form">
-      <div>
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username"  [(ngModel)]="addUserRequest.username" required>
+  <h1 class="mb-3">Register</h1>
+  <form #form="ngForm" (ngSubmit)="addUser()" class="register-form">
+      <div [class.has-error]="emptyFields[0]">
+          <label for="username">Username:</label>
+          <input type="text" id="username" name="username" [(ngModel)]="addUserRequest.username" required>
       </div>
-      <div>
-        <label for="firstname">First Name:</label>
-        <input type="text" id="firstname" name="firstname" [(ngModel)]="addUserRequest.firstName" required>
+      <div [class.has-error]="emptyFields[2]">
+          <label for="firstname">First Name:</label>
+          <input type="text" id="firstname" name="firstname" [(ngModel)]="addUserRequest.firstName" required>
       </div>
-      <div>
-        <label for="lastname">Last Name:</label>
-        <input type="text" id="lastname" name="lastname" [(ngModel)]="addUserRequest.lastName" required>
+      <div [class.has-error]="emptyFields[3]">
+          <label for="lastname">Last Name:</label>
+          <input type="text" id="lastname" name="lastname" [(ngModel)]="addUserRequest.lastName" required>
       </div>
-      <div>
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" [(ngModel)]="addUserRequest.email" required>
+      <div [class.has-error]="emptyFields[1]">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" [(ngModel)]="addUserRequest.email" required>
       </div>
-      <div>
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" [(ngModel)]="addUserRequest.password" required>
+      <div [class.has-error]="emptyFields[4]">
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" [(ngModel)]="addUserRequest.password" required>
       </div>
       <button type="submit">Register</button>
-    </form>
-  </div>
-
-
+  </form>
+</div>
